@@ -62,7 +62,7 @@ tools:
             use_evaluation: true
             use_undeclared_global_variable: true
             unknown_object_method: true
-unknown_trait: true
+            unknown_trait: true
 
 build:
   nodes:
