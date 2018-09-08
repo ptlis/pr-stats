@@ -63,13 +63,3 @@ tools:
             use_undeclared_global_variable: true
             unknown_object_method: true
             unknown_trait: true
-
-build:
-  nodes:
-    coverage:
-      tests:
-        override:
-          - command: ./vendor/bin/phpunit
-            coverage:
-              file: coverage.clover
-              format: clover
