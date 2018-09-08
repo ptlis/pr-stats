@@ -1,0 +1,31 @@
+{
+    "name": "ptlis/pr-stats",
+    "type": "library",
+    "license": "mit",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "ptlis",
+            "email": "ptlis@ptlis.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "gentle/bitbucket-api": "^1.1",
+        "symfony/console": "^3.4",
+        "josegonzalez/dotenv": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "ptlis\\PrStats\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ptlis\\PrStats\\Tests\\": "tests/"
+        }
+    }
+}

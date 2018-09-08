@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         verbose="true">
+
+    <testsuites>
+        <testsuite name="PrStats">
+            <directory suffix="Test.php">./tests/</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src/</directory>
+        </whitelist>
+        <exclude>
+            <directory suffix=".php">./vendor/</directory>
+        </exclude>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" target="coverage/" title="PrStats"
+             charset="UTF-8" yui="true" highlight="true"
+             lowUpperBound="35" highLowerBound="70"/>
+    </logging>
+
+</phpunit>

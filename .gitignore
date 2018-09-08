@@ -1,0 +1,7 @@
+.idea/
+vendor/
+coverage
+.env
+.env.*
+!/tests/**/.env
+!/tests/**/.env.*
