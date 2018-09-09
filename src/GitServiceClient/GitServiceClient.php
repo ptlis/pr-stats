@@ -8,6 +8,7 @@
 
 namespace ptlis\PrStats\GitServiceClient;
 
+use ptlis\PrStats\DTO\PullRequest;
 use ptlis\PrStats\DTO\Repository;
 
 /**
@@ -21,4 +22,14 @@ interface GitServiceClient
      * @return Repository[]
      */
     public function getAllRepositories();
+
+    /**
+     * Returns a list of PullRequest instances for the provided Repository.
+     *
+     * @param Repository $repository
+     * @param array $prStatusList Array of PullRequest::PR_STATUS_* constants
+     *
+     * @return PullRequest[]
+     */
+    public function getPullRequests(Repository $repository, array $prStatusList);
 }

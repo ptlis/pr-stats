@@ -52,7 +52,8 @@ final class StatsWeeklyCommand extends Command
                     PullRequest::PR_STATUS_MERGED
                 ]
             );
+            var_dump($prList);
+            die();
         }
-        var_dump($prList);
     }
 }
