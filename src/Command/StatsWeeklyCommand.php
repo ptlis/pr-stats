@@ -9,6 +9,7 @@
 namespace ptlis\PrStats\Command;
 
 use ptlis\PrStats\Config\ConfigResolver;
+use ptlis\PrStats\GitServiceClient\ClientFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -32,9 +33,16 @@ final class StatsWeeklyCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        // Populate config
         $configResolver = new ConfigResolver($input, $input->getOption(CommonOptions::OPTION_DOTENV_FILE));
         $config = $configResolver->getConfig();
 
-        var_dump($config);
+        // Create client
+        $clientFactory = new ClientFactory();
+        $client = $clientFactory->build($config);
+
+        $repoList = $client->getAllRepositories();
+
+        var_dump($repoList);
     }
 }
