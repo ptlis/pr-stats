@@ -9,6 +9,7 @@
 namespace ptlis\PrStats\Command;
 
 use ptlis\PrStats\Config\ConfigResolver;
+use ptlis\PrStats\DTO\PullRequest;
 use ptlis\PrStats\GitServiceClient\ClientFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -16,8 +17,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class StatsWeeklyCommand extends Command
 {
-    /*
-     * {@inheritdoc}
+    /**
+     * @inheritdoc
      */
     protected function configure()
     {
@@ -29,7 +30,7 @@ final class StatsWeeklyCommand extends Command
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -43,6 +44,15 @@ final class StatsWeeklyCommand extends Command
 
         $repoList = $client->getAllRepositories();
 
-        var_dump($repoList);
+        foreach ($repoList as $repository) {
+            $prList = $client->getPullRequests(
+                $repository,
+                [
+                    PullRequest::PR_STATUS_DECLINED,
+                    PullRequest::PR_STATUS_MERGED
+                ]
+            );
+        }
+        var_dump($prList);
     }
 }
